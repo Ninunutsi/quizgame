@@ -1,9 +1,15 @@
+import type { ReactNode } from "react"
 import { useNavigate } from "react-router"
 
-const ProtectedPage = ({children}) => {
+interface Iprops {
+    children:ReactNode
+}
+
+const ProtectedPage = ({children }:Iprops) => {
 
     const navigate =useNavigate()
-     const isautorization =false
+     const isautorization = false
+
 if (!isautorization ) { 
     return navigate("/")
 }  else {
