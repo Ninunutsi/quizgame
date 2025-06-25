@@ -1,5 +1,6 @@
 import type { ReactNode } from "react"
 import { useNavigate } from "react-router"
+import { useSelector } from 'react-redux';
 
 interface Iprops {
     children:ReactNode
@@ -8,9 +9,9 @@ interface Iprops {
 const ProtectedPage = ({children }:Iprops) => {
 
     const navigate =useNavigate()
-     const isautorization = false
+    const login = useSelector(state=>state.isAuth.login)
 
-if (!isautorization ) { 
+if (login) { 
     return navigate("/")
 }  else {
     return children
